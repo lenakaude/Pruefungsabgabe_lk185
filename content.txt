@@ -1,0 +1,41 @@
+Content
+
+Startseite
+
+
+
+1. Gemisch Ansaugen
+2. Verdichten
+3. Arbeiten
+4. Ausstoßen
+
+Aufbau und Funktionsweise eines Viertakt-Ottomotors mit 
+einem Zylinder
+
+Jede einzelne Hub- oder Senkbewegung des Kolbens wird als 
+Takt bezeichnet. Im Viertakt-Ottomotor finden also vier solche 
+Bewegungen statt, bevor die Prozesse sich wiederholen.
+
+1.Ansaugtakt
+Ansaugen des Benzin-Luftgemisches des Vergasers durch das 
+Einlassventil bei geschlossenem Auslassventil. Der Kolben 
+bewegt sich nach unten.
+
+2.Verdichtungstakt
+Der sich nach oben bewegende Kolben verdichtet bei 
+geschlossenen Ventilen den Brennstoff und erwärmt ihn 
+hierbei.
+
+3.Arbeitstakt
+Beide Ventile sind geschlossen. Im Moment der größten 
+Verdichtung wird das Benzin-Luft-Gemisch durch die Zündkerze 
+gezündet. Durch die explosionsartige Verbrennung wird der 
+Kolben nach unten gedrückt, es wird an ihm Arbeit verrichtet.
+
+4.Auspufftakt
+Das Auslassventil wird geöffnet und die verbrannten Abgase 
+werden durch den sich nach oben bewegenden Kolben 
+ausgestoßen.
+
+
+QUIZ
