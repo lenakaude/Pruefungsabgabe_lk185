@@ -2,41 +2,78 @@
 //Vier-Takt-Motor
 
 
-//Library laden
+// loadig libaries
 import processing.sound.*;
 import controlP5.*;
 
-//Variablen für Schriften
-PFont fontHeading;//Fließtext
-PFont fontText;
-PFont fontNav;
-//pixelDensity(displayDensity()); //???
+//Variable für Library für Textboxen
+ControlP5 controlp5;
 
-//Colors
-color white = color (255);// weiss
-color dGrey  = color (45, 41, 42);// dunkelgrau
-color yellow  = color (223, 184, 67);// gelb
-color bGrey  = color (246, 245, 240);// hellgrau
-color black  = color (0);// schwarz
-
-// Bilder
-PImage foto; //Foto für Startbildschirm
-PImage iconFlag; //Lautsprecher-Icon für Infobildschirm
-PImage icon2; //Mute- Icon für Infobildschirm
-PImage grafik1;
-PImage pfeilStart; // Pfeil Startseite
-
-//Aktuelle Seite
+//
+Textfield question2;
+Textfield question3;
+// current Page
 int currentPage = 1;
 
-//Variablen
+// variables test
+PFont fontHeading; // heading
+PFont fontHeadingSmall;
+PFont fontText; // normal text
+PFont fontNav; // text in navigation bar
+PFont fontTextField;
+PFont fontTextSmall;
+
+//pixelDensity(displayDensity()); //???
+
+// colors
+color white = color (255);
+color dGrey  = color (45, 41, 42);
+color yellow  = color (223, 184, 67);
+color bGrey  = color (246, 245, 240);
+color black  = color (0);
+color red = color (255, 90, 0);
+color green = color (0, 255, 0);
+
+// images
+PImage iconFlag; // icon flags
+PImage icon2; 
+PImage grafik1;
+PImage pfeilStart; // Button Startseite 
+PImage timerIcon;
+PImage soundIcon;
+PImage soundIcon2;
+PImage playIcon;
+PImage tactBasic;
+PImage iconExplosion;
+PImage iconSpark;
+PImage iconArrowYellow;
+
+PImage motorBase;
+PImage motorUp1;
+PImage motorUp2;
+PImage motorUp3;
+PImage motorBase2;
+PImage motorDown1;
+PImage motorDown2;
+PImage motorDown3;
+PImage ventilLeft;
+PImage ventilRight;
+
+ArrayList<PImage> takt1Animation = new ArrayList();
+ArrayList<PImage> takt2Animation = new ArrayList();
+ArrayList<PImage> takt3Animation = new ArrayList();
+ArrayList<PImage> takt4Animation = new ArrayList();
+
+
+// varables 
+// text
 String nav1 = "START";
 String nav2 = "INFOGRAFIK";
 String nav3 = "QUIZ";
 String los = "Los Geht's";
 
-//Buttons Koordinaten
-int navY = 70;
+// buttons coordinates
+int navY = 69;
 int navWidth = 186;
 int navHeight = 46;
 int nav1X = 87;
@@ -46,57 +83,161 @@ int nav3X = 517;
 int pfeilButtonX = 800;
 int pfeilButtonY = 450;
 
-//Booleans Buttons
+// booleans buttons
 boolean overNav1, overNav2, overNav3;
+
+// audio
+SoundFile audioFile1;
+SoundFile audioFile2;
+SoundFile audioFile3;
+SoundFile audioFile4;
+
+// audio volume settings
+Sound volumeAudioFiles; //Volumen-Objekt
+float amplitude=0.6; //Lautstärke zu Beginn aus
+int soundDuration = 0; //für Ermitteln der Dauer der Audios // ok 
 
 // Setup
 void setup () {
   size(1300, 800);
+  pixelDensity(displayDensity());
   background(white);
 
+  // loading audio files 
+  volumeAudioFiles= new Sound (this);
+  audioFile1 = new SoundFile(this, "audio/tact1.mp3");
+  audioFile2 = new SoundFile(this, "audio/tact2.mp3");
+  audioFile3 = new SoundFile(this, "audio/tact3.mp3");
+  audioFile4 = new SoundFile(this, "audio/tact4.mp3");
+
+  audioFile1.amp(0.5);
+  audioFile2.amp(0.5);
+  audioFile3.amp(0.5);
+  audioFile4.amp(0.5);
 
 
-  // Schriftwarten einbinen
+  //audioFile1.play();
+  //file.loop();
+
+  // fonts
   fontText=createFont("fonts/Dongle-Light.ttf", 80);
-  fontNav=createFont("fonts/Dongle-Light.ttf", 55);//Schriftfont und Größe zuordnen
+  fontTextSmall=createFont("fonts/Dongle-Light.ttf", 36);
+  fontTextField=createFont("fonts/Dongle-Light.ttf", 25);
+  fontNav=createFont("fonts/Dongle-Light.ttf", 55);//S font and textsize
   fontHeading=createFont("fonts/NeueMachina-Ultrabold.otf", 80);
-  //fontHeading=createFont("Orbitron-VariableFont_wght.ttf", 80);
+  fontHeadingSmall=createFont("fonts/NeueMachina-Ultrabold.otf", 50);
 
-  //Bilder
+  // loading images
   iconFlag=loadImage("media/twoFlags.png");
   pfeilStart=loadImage("media/pfeilStart.png");
+  timerIcon=loadImage("media/timer.png");
+  soundIcon=loadImage("media/sound.png");
+  soundIcon2=loadImage("media/sound2.png");
+  playIcon=loadImage("media/play.png");
+  tactBasic=loadImage("media/platzhalter_kolben.png");
+  iconExplosion=loadImage("media/explosion.png");
+  iconSpark=loadImage("media/spark.png");
+  iconArrowYellow=loadImage("media/arrowYellow.png");
+
+  motorBase = loadImage("media/motor_base.png");
+  motorUp1 = loadImage("media/motor_up1.png");
+  motorUp2 = loadImage("media/motor_up2.png");
+  motorUp3= loadImage("media/motor_up3.png");
+  motorBase2= loadImage("media/motor_base_2.png");
+  motorDown1= loadImage("media/motor_down1.png");
+  motorDown2 = loadImage("media/motor_down2.png");
+  motorDown3= loadImage("media/motor_down3.png");
+  ventilLeft= loadImage("media/ventilLeft.png");
+  ventilRight= loadImage("media/ventilRight.png");
+
+  //setzen von Einzelbildern für die erste Animation
+  takt1Animation.add(motorBase);
+  takt1Animation.add(motorUp1);
+  takt1Animation.add(motorUp2);
+  takt1Animation.add(motorUp3);
+  takt1Animation.add(motorBase2);
+
+  takt2Animation.add(motorBase2);
+  takt2Animation.add(motorDown1);
+  takt2Animation.add(motorDown2);
+  takt2Animation.add(motorDown3);
+  takt2Animation.add(motorBase);
+
+  takt3Animation.add(motorBase);
+  takt3Animation.add(motorUp1);
+  takt3Animation.add(motorUp2);
+  takt3Animation.add(motorUp3);
+  takt3Animation.add(motorBase2);
+
+  takt4Animation.add(motorBase2);
+  takt4Animation.add(motorDown1);
+  takt4Animation.add(motorDown2);
+  takt4Animation.add(motorDown3);
+  takt4Animation.add(motorBase);
+
+
+
+  // textfields quiz
+  //Library Eingabefelder auf Quizseite
+  controlp5 = new ControlP5(this);
+  //Eingabefeld 1
+  controlp5.addTextfield("question2").hide().setPosition(885, 439)
+    .setSize(135, 32)
+    .setFont(fontTextField)
+    .setFocus(true)
+    .setColor(black)
+    .setColorCursor(black)
+    .setColorBackground(white)
+    .setColorActive(dGrey)
+    .setCaptionLabel("")
+    .setColorForeground(bGrey);
+
+  question2 = controlp5.get(Textfield.class, "question2");
+
+  //Eingabefeld 2
+  controlp5.addTextfield("question3").hide().setPosition(927, 507)
+    .setSize(135, 32)
+    .setFont(fontTextField)
+    .setFocus(true)
+    .setColor(black)
+    .setColorCursor(black)
+    .setColorBackground(white)
+    .setColorActive(dGrey)
+    .setCaptionLabel("")
+    .setColorForeground(bGrey);
+
+  question3 = controlp5.get(Textfield.class, "question3");
 }
 
-//Audios einbinden
 
-// Hier gehts los___________________________________________
+
+// here starts the fun___________________________________________
+
 void draw() {
   background(white);
-  update(); //Checkt die Mausposition und setzt die Booleans overNav1 etc
+  update(); // checks mouse position and sets the booleans true overNav1 etc.
 
-  // Switch case; welche Zahl ist currentPage 
-  // if currentPage = 1. dann wird start() aufgerufen
+  // Switch case; which page is currentPage 
+  // if currentPage = 1. calling start() function
   switch(currentPage) {
   case 1: 
     startPage();  
     break;
   case 2: 
-    infografik(); 
+    infografikStartPage(); 
     break;
   case 3: 
-    quiz1(); 
+    quizStartPage(); 
     break;
-  default:             // Default executes if the case names different and nothing happpens
+  default:             // default executes if the case name is different and nothing happpens
     break;
   }
 
-
-
-  // Linie Navigation
+  //gelbe Navigation
   stroke(yellow);
-  strokeWeight(4);
+  strokeWeight(6);
   line(0, 118, 750, 118);
-  
+
 
   // Navigationsmenü
   //Wenn Maus über Nav Button oder entsprechende Seite ausgewählt -> fill Rect bGrey 
@@ -133,8 +274,4 @@ void draw() {
   text(nav2, 375+20, 101);
   text(nav3, 570+40, 101);
   textAlign(CORNER);
-
-
-
-  
 }
