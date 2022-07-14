@@ -17,6 +17,14 @@ int volSliderX = 1010; //Mitte des Balkens
 int volSliderY = 623;
 int volRadius = 20;
 
+String caption1 = "Zündkerze";
+String caption2 = "Einlassventil";
+String caption3 = "Auslassventil";
+String caption4 = "Brennraum";
+String caption5 = "Kolben";
+String caption6 = "Pleuelstange";
+String caption7 = "Kurbelwelle";
+
 
 
 // function displays page Infografik // includes elements that are on all pages tact 1-4
@@ -46,6 +54,31 @@ void infografikStartPage () {
   rectMode(CORNER);
   
   
+  //subtitles
+  // Linien platzieren!!
+  stroke(black);
+  strokeWeight(1);
+  fill(black);
+  line(410, 295, 452, 315); // zünd
+  line(370, 320, 390, 320); // ein links
+  line(520, 320, 542, 320); // aus rechts
+  line(365, 380, 405, 380); // brennraum
+  line(500, 430, 530, 430); // kolben
+  line(355, 455, 450, 480); // Pleuel
+  line(500, 605, 545, 615); // Kurbel  
+  
+  textFont(fontTextSmall);
+  textSize(30);
+  textAlign(CENTER);
+  text(caption1, 455, 290); // zünd
+  text(caption2, 310, 330); // ein
+  text(caption3, 600, 330); // aus
+  text(caption4, 310, 380); // 
+  text(caption5, 565, 440);
+  text(caption6, 290, 455);
+  text(caption7, 590, 630);
+  textAlign(CORNER);
+  
   // icons
   image(soundIcon, 895, 593);
   soundIcon.resize(60,55);
@@ -66,9 +99,7 @@ void infografikStartPage () {
   image(playIcon, 93, 270);
   playIcon.resize(80,80);
   
-  // icon arrow yellow
-  image(iconArrowYellow, 550, 450);
-  iconArrowYellow.resize(25, 60);
+
   
   //siehe weiter unten
   drawCircleButtons(); // call function that draws circles in footer

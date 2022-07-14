@@ -25,81 +25,80 @@ int circleSizeButton = 50;
 
 
 
-void quiz2Page (){
-  
+void quiz2Page () {
+
   // schwarze Linie
   stroke(black);
   strokeWeight(5);
-  line(0,220,1301,220);
+  line(0, 220, 1301, 220);
   noStroke();
-  
+
   rectMode(CORNER);
   fill(bGrey);
-  rect(370,190,950,500);
-  
+  rect(370, 190, 950, 500);
+
   stroke(white);
   noFill();
   rect(390, 210, 910, 460);
   rectMode(CORNER);
-  
+
   textFont(fontHeadingSmall);
   textAlign(LEFT);
   fill(dGrey);
   text(quiz2Heading, 93, 207);
-  
+
   textAlign(CORNER);
   textFont(fontText);
   textSize(55);
   textLeading(33);
   text(textLuecke1und2, 745, 255, 500, 300);
   text(textLuecke3, 745, 455, 500, 300);
-  
+
   // timer
   //fill(black);
   //rect(170,340,80,80);
-  image(timerIcon, 170,340);
-  
-  
+  image(timerIcon, 170, 340);
+
+
   //Button Kreis 
   //Button Prüfen
   noStroke();
   fill(black);
   ellipse(circlePruefenX, circlePruefenY, circleSizeButton, circleSizeButton);
-   //Button Nochmal
+  //Button Nochmal
   ellipse(circleNochmalX, circleNochmalY, circleSizeButton, circleSizeButton);
-  
+
   fill(black);
   text(buttonPruefen, circlePruefenX+50, circlePruefenY+10);
   text(buttonNochmal, circleNochmalX+50, circleNochmalY+10);
-  
-  
+
+
   // CHECKBOXeN
   timer();
   checkbox();
-  
+
   question2.show();
   question3.show();
   
-  if(selectedButtonP) {
-     pruefen(); 
+  if (selectedButtonP) {
+    pruefen();
   }
-  
-  if(selectedButtonN) {
+
+  if (selectedButtonN) {
     nochmal();
   }
-  
 }
 
-void pruefen(){
-   currentSubPageQuiz = 2;
+void pruefen() {
+  print("PRUEFEN");
+  currentSubPageQuiz = 3;
 }
 
-void nochmal(){
-  
+void nochmal() {
 }
 
 // wenn Zeit abgelaufen ist zu Screen Quiz 3 oder Quiz 4 wechseln
-  //wenn Zeit abgelaufen, Wechsel zu Screen=11
- /*if (leftTime<0) {
-    screen=11;
-  }*/
+//wenn Zeit abgelaufen, Wechsel zu Screen=11
+/*if (leftTime<0) {
+ screen=11;
+ }*/

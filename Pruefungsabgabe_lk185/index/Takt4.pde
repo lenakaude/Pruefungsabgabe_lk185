@@ -19,6 +19,19 @@ void tact4Page (){
   fill(dGrey);
   text(taktText4, 895, 315);
   
+        // icon arrow yellow
+  image(iconArrowUp, 550, 450);
+  iconArrowUp.resize(25, 60);
+  
+  
+ // arrow Right
+  //image(iconArrowRight, 410, 660);
+  
+    // ventils closed
+  image(ventilLeft, 392,320);
+  image(ventilRight, 464,331);
+
+  
   PImage currentImage = takt2Animation.get(currentAnimationStep);
   //modulo = Eingabewert A / Eingabewert B ==> Rest -- 24%5 = 4
   image(currentImage, 375, 315);

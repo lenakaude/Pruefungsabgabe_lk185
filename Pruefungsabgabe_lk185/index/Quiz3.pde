@@ -5,10 +5,18 @@ String textPunktestand2 = "lautet ";
 
 int punkte = 0;
 
+boolean overButtonNochmal2;
+boolean selectedButtonN2;
+String buttonNochmal2 = "Nochmal";
+// nochmal button
+int circleNochmalX2 =590;
+int circleNochmalY2 =560;
+int circleSizeButton2 = 50;
+
 
 void quiz3Page (){
   punkte = 0; //Muss neu gesetzt werden, damit keine Addition in jeder draw stattfindet
-
+  print("RENDER QUIZ 3");
   // schwarze Linie
   stroke(black);
   strokeWeight(5);
@@ -41,6 +49,10 @@ void quiz3Page (){
   fill(dGrey);
   text(textPunktestand, width/2, height/2+50);
   
+   //Button Nochmal 2
+  ellipse(circleNochmalX2, circleNochmalY2, circleSizeButton2, circleSizeButton2);
+  text(buttonNochmal2, 635, 575);
+  
   String antwort1 = question2.getText();
   String antwort2 = question3.getText();
   
@@ -55,7 +67,9 @@ void quiz3Page (){
   if(selectedA) {
     punkte = punkte + 1;
   }
- 
+   //if(selectedButtonN2) {
+    //nochmal();
+  //}
   
   String punkteTextAnzeige = textPunktestand2 + str(punkte);
   // checkbox right and wrong

@@ -12,7 +12,7 @@
 //Text Lückentext
 
 boolean overQuizStart;
-int currentSubPageQuiz = 0;
+int currentSubPageQuiz = 1;
 String quiz1Heading ="Lust auf ein\nkleines Quiz?";
 
 // Pfeil Button auf Quiz Page
@@ -34,13 +34,14 @@ void quizStartPage () {
  // function that calls and displays the subPages (tact 1- tact4)
 
   switch(currentSubPageQuiz) {
-  case 0:
+  case 1:
     quiz1Page();
     break;
-  case 1: 
+  case 2: 
     quiz2Page();
     break;
-  case 2: 
+  case 3: 
+    print("RENDER QUIZ RESOLUTION");
     quiz3Page(); 
     break;
   default:             // default executes if the case name is different and nothing happpens

@@ -15,7 +15,7 @@ void mouseClicked() {
   } else if (overNav3) { // page quiz 1
     currentPage = 3;
   } else if (overQuizStart) { // page quiz 1
-    currentSubPageQuiz = 1;
+    currentSubPageQuiz = 2;
     //quiz1Page();
   } else if (mouseOverA) { // checkbox 1
     selectedA = true;
@@ -44,11 +44,14 @@ void mouseClicked() {
     animationRunning = false;
     stopAllAudioFiles();
   } else if (overButtonPruefen) { // prüfen button
+  print(" SELECTED BUTTON P");
     selectedButtonP = true;
     selectedButtonN = false;
   } else if (overButtonNochmal) { // nochmal button
     selectedButtonN = true;
     selectedButtonP = false;
+ } else if (overButtonNochmal2) { // nochmal button2
+    selectedButtonN2 = true;
   } else if (mouseOverPlayButton) {
     currentAnimationStep = 0;
     lastMillisAnimChange = millis();

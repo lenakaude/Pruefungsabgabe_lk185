@@ -1,12 +1,6 @@
 String takt1Heading ="Gemisch Ansaugen";
 String taktText1 ="Ansaugen, des Benzin-Luft-\ngemisches des Vergasers,\ndurch das Einlassventil\nbei geschlossenem Auslass-\nventil. Der Kolben bewegt\nsich nach unten";
-String caption1 = "Zündkerze";
-String caption2 = "Einlassventil";
-String caption3 = "Auslassventil";
-String caption4 = "Brennraum";
-String caption5 = "Kolben";
-String caption6 = "Pleuelstange";
-String caption7 = "Kurbelwelle";
+
 
 int currentAnimationStep = 0;
 int lastMillisAnimChange = 0;
@@ -29,10 +23,23 @@ void tact1Page () {
   textLeading(32);
   fill(dGrey);
   text(taktText1, 895, 315); 
+  
+    // icon arrow yellow
+  image(iconArrowDown, 550, 450);
+  iconArrowDown.resize(25, 60);
+  
+  //image(iconArrowLeft, 410, 660);
 
   PImage currentImage = takt1Animation.get(currentAnimationStep);
   //modulo = Eingabewert A / Eingabewert B ==> Rest -- 24%5 = 4
+  
+  // ventils closed
+  image(ventilLeft, 399,331);
+  image(ventilRight, 473,320);
+  
+  // 
   image(currentImage, 375, 315);
+  
 
   //Checkt, ob seit der letzten Änderung des Bildes in der Animation 1 Sekunde 
   //vergangen ist, wenn ja: neues Bild im nächsten Frame
@@ -50,21 +57,5 @@ void tact1Page () {
   }
 
 
-  //subtitles
-  line(50, 50, 50, 50);
-  line(50, 50, 50, 50);
-  line(50, 50, 50, 50);
-  line(50, 50, 50, 50);
-  line(50, 50, 50, 50);
-  line(50, 50, 50, 50);
-  line(50, 50, 50, 50);
-
-  textAlign(CENTER);
-  text(caption1, 455, 290);
-  text(caption2, 315, 330);
-  text(caption3, 595, 330);
-  text(caption4, 330, 530);
-  text(caption5, 570, 550);
-  text(caption6, 300, 590);
-  text(caption7, 590, 630);
+  
 }

@@ -1,7 +1,6 @@
 //Prüfungsabgabe lk185
 //Vier-Takt-Motor
 
-
 // loadig libaries
 import processing.sound.*;
 import controlP5.*;
@@ -46,7 +45,10 @@ PImage playIcon;
 PImage tactBasic;
 PImage iconExplosion;
 PImage iconSpark;
-PImage iconArrowYellow;
+PImage iconArrowUp;
+PImage iconArrowDown;
+PImage iconArrowLeft;
+PImage iconArrowRight;
 
 PImage motorBase;
 PImage motorUp1;
@@ -80,8 +82,8 @@ int nav1X = 87;
 int nav2X = 302;
 int nav3X = 517;
 
-int pfeilButtonX = 800;
-int pfeilButtonY = 450;
+int startPfeilButtonX = 800;
+int startPfeilButtonY = 450;
 
 // booleans buttons
 boolean overNav1, overNav2, overNav3;
@@ -137,7 +139,10 @@ void setup () {
   tactBasic=loadImage("media/platzhalter_kolben.png");
   iconExplosion=loadImage("media/explosion.png");
   iconSpark=loadImage("media/spark.png");
-  iconArrowYellow=loadImage("media/arrowYellow.png");
+  iconArrowUp=loadImage("media/arrowUp.png");
+  iconArrowDown=loadImage("media/arrowDown.png");
+  iconArrowRight=loadImage("media/arrow_right.png");
+  iconArrowLeft=loadImage("media/arrow_left.png");
 
   motorBase = loadImage("media/motor_base.png");
   motorUp1 = loadImage("media/motor_up1.png");
@@ -152,27 +157,27 @@ void setup () {
 
   //setzen von Einzelbildern für die erste Animation
   takt1Animation.add(motorBase);
-  takt1Animation.add(motorUp1);
-  takt1Animation.add(motorUp2);
-  takt1Animation.add(motorUp3);
+  takt1Animation.add(motorDown1);
+  takt1Animation.add(motorDown2);
+  takt1Animation.add(motorDown3);
   takt1Animation.add(motorBase2);
 
   takt2Animation.add(motorBase2);
-  takt2Animation.add(motorDown1);
-  takt2Animation.add(motorDown2);
-  takt2Animation.add(motorDown3);
+  takt2Animation.add(motorUp1);
+  takt2Animation.add(motorUp2);
+  takt2Animation.add(motorUp3);
   takt2Animation.add(motorBase);
 
   takt3Animation.add(motorBase);
-  takt3Animation.add(motorUp1);
-  takt3Animation.add(motorUp2);
-  takt3Animation.add(motorUp3);
+  takt3Animation.add(motorDown1);
+  takt3Animation.add(motorDown2);
+  takt3Animation.add(motorDown3);
   takt3Animation.add(motorBase2);
 
   takt4Animation.add(motorBase2);
-  takt4Animation.add(motorDown1);
-  takt4Animation.add(motorDown2);
-  takt4Animation.add(motorDown3);
+  takt4Animation.add(motorUp1);
+  takt4Animation.add(motorUp2);
+  takt4Animation.add(motorUp3);
   takt4Animation.add(motorBase);
 
 
