@@ -90,6 +90,7 @@ void quiz2Page () {
 }
 
 void pruefen() {
+  resetTimer();
   print("PRUEFEN");
   currentSubPageQuiz = 3;
 }
@@ -98,6 +99,7 @@ void nochmal() {
   resetTimer();
   selectedButtonP = false;
   selectedButtonN = false;
+  selectedButtonN2 = false;
   currentSubPageQuiz = 2;
   question2.clear();
   question3.clear();

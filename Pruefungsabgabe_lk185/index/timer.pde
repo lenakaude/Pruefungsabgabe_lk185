@@ -1,4 +1,4 @@
-int countdownSeconds = 25;
+int countdownSeconds = 6;
 int curTimer = countdownSeconds; //Muss am Anfang gleich sein für Visu usw
 int lastTimer = countdownSeconds;
 
@@ -13,6 +13,10 @@ void timer() {
     textAlign(CENTER);
     text(curTimer, 210, 330);
     fill(255);
+    
+    if(curTimer == 0) {
+      pruefen(); 
+    }
   } else {
     resetTimer();
   }
@@ -21,4 +25,5 @@ void timer() {
 void resetTimer() {
   print("RESET TIMER");
   lastTimer = countdownSeconds + int(millis()/1000);
+  curTimer = lastTimer;
 }
