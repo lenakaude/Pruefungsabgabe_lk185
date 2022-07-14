@@ -226,9 +226,11 @@ void draw() {
   // if currentPage = 1. calling start() function
   switch(currentPage) {
   case 1: 
+    currentSubPageQuiz = 1;
     startPage();  
     break;
   case 2: 
+    currentSubPageQuiz = 1;
     infografikStartPage(); 
     break;
   case 3: 

@@ -52,6 +52,8 @@ void mouseClicked() {
     selectedButtonP = false;
  } else if (overButtonNochmal2) { // nochmal button2
     selectedButtonN2 = true;
+    selectedButtonN = false;
+    selectedButtonP = false;
   } else if (mouseOverPlayButton) {
     currentAnimationStep = 0;
     lastMillisAnimChange = millis();

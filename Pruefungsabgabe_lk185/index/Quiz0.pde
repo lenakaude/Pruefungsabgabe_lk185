@@ -32,9 +32,9 @@ void quizStartPage () {
  // Swtichcase für die unterschiedlichen Quiz Pages
  //positionsQuiz(); // brauche ich doch nicht, weil das switch case in der Allgemeinen Quiz Start Page Funktion drin ist...
  // function that calls and displays the subPages (tact 1- tact4)
-
   switch(currentSubPageQuiz) {
   case 1:
+    resetTimer();
     quiz1Page();
     break;
   case 2: 

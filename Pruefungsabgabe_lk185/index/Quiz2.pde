@@ -79,7 +79,7 @@ void quiz2Page () {
 
   question2.show();
   question3.show();
-  
+
   if (selectedButtonP) {
     pruefen();
   }
@@ -95,6 +95,15 @@ void pruefen() {
 }
 
 void nochmal() {
+  resetTimer();
+  selectedButtonP = false;
+  selectedButtonN = false;
+  currentSubPageQuiz = 2;
+  question2.clear();
+  question3.clear();
+  question2.show();
+  question3.show();
+  selectedA = selectedB = false;
 }
 
 // wenn Zeit abgelaufen ist zu Screen Quiz 3 oder Quiz 4 wechseln
